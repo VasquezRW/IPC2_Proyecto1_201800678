@@ -14,8 +14,8 @@ if __name__ == '__main__':
         print("1. Cargar archivo")
         print("2. Procesar archivo")
         print("3. Escribir archivo salida")
-        print("4. Mostrar datos del estudiante")
-        print("5. Generar grafica")
+        print("4. Generar grafica")
+        print("5. Mostrar datos del estudiante")
         print("6. Salida")
         print("----------------------------------")
         op = int(input())
@@ -39,12 +39,16 @@ if __name__ == '__main__':
         elif op == 3:
             print("----------------------------------")
             ruta2 = input("Ingrese la ruta\n")
-            #ruta2 = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\salida2.xml"
+            # ruta2 = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\salida2.xml"
             escribirXML.escribirArchivoXML(datos2, ruta2)
             print("----------------------------------")
         elif op == 4:
             print("----------------------------------")
-
+            print("Que matriz desea imprimir: ")
+            datos.imprimirNombres()
+            indice = int(input("Ingrese el indice de la matriz: \n"))
+            nombre = datos.obtener_Nombre(indice)
+            escribirXML.generarGrafica(datos, nombre)
             print("----------------------------------")
         elif op == 5:
             print("----------------------------------")
