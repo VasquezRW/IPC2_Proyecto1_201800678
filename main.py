@@ -22,8 +22,8 @@ if __name__ == '__main__':
 
         if op == 1:
             print("----------------------------------")
-            # ruta = input("Ingrese la ruta\n")
-            ruta = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\entrada1.xml"
+            ruta = input("Ingrese la ruta\n")
+            # ruta = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\entrada1.xml"
             datos = lectorXML.leer_Archivo(ruta)
             datos.imprimir()
 
@@ -38,8 +38,8 @@ if __name__ == '__main__':
             print("----------------------------------")
         elif op == 3:
             print("----------------------------------")
-            #ruta2 = input("Ingrese la ruta\n")
-            ruta2 = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\salida2.xml"
+            ruta2 = input("Ingrese la ruta\n")
+            #ruta2 = "C:\\Users\\Storias\\Desktop\\1ER SEMESTRE 2021\\IPC2\\Proyecto1\\salida2.xml"
             escribirXML.escribirArchivoXML(datos2, ruta2)
             print("----------------------------------")
         elif op == 4:
