@@ -26,7 +26,7 @@ def escribirArchivoXML(datos, ruta):
 
 
         arbol = ET.ElementTree(elementoMatrices)
-
+        ET.indent(arbol, space=" ", level=0)
 
         arbol.write(ruta, encoding='UTF-8', xml_declaration=True)
 
