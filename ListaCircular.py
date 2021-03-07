@@ -1,0 +1,89 @@
+from listasSimples import *
+import lectorXML
+
+class nodoMatriz:
+    def __init__(self, nombre=None, matriz=None, n=0, m=0, next=None, matrizReducida=None):
+        self.nombre = nombre
+        self.matriz = matriz
+        self.matrizReducida = matrizReducida
+        self.n = n
+        self.next = next
+        self.m = m
+
+
+class linked_list_circular:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+
+    def insertar(self, matriz, nombre, n, m):
+        if self.size == 0:
+            self.head = nodoMatriz(nombre=nombre, matriz=matriz, n=n, m=m)
+            self.head.next = self.head
+        else:
+            nodo = self.head
+            while nodo.next is not self.head:
+                nodo = nodo.next
+            new_node = nodoMatriz(nombre=nombre, matriz=matriz, n=n, m=m, next=self.head)
+            nodo.next = new_node
+        self.size += 1
+
+    def comprobar_Nombre(self, nombre):
+        nodo = self.head
+        # existe = False
+        if self.size == 0:
+            return True
+        else:
+            while nodo.next is not self.head:
+                if nodo.nombre is nombre:
+                    return False
+                else:
+                    nodo = nodo.next
+            return True
+
+    def imprimir(self):
+        if self.head is None:
+            return
+        nodo = self.head
+        print(f"nombre: {nodo.nombre} | matriz: {nodo.matriz} | n: {nodo.n} | m: {nodo.m}")
+        print(nodo.matriz.imprimir())
+        while nodo.next is not self.head:
+            nodo = nodo.next
+            print(f"nombre: {nodo.nombre} | matriz: {nodo.matriz} | n: {nodo.n} | m: {nodo.m}")
+            print(nodo.matriz.imprimir())
+
+    def crearMatricesReducidas(self):
+        actual = self.head
+        for i in range(0, self.size+1):
+            n = actual.n
+            m = actual.m
+            matrizRed = lectorXML.crear_matriz(n, m)
+            matrizRed = actual.matriz
+            matrizRed.reducirMatriz()
+            actual.matrizReducida = matrizRed
+            actual = actual.next
+
+    def convertirBinarias(self):
+        actual = self.head
+        for i in range(0, self.size):
+            n = actual.n
+            m = actual.m
+            matrizRed = lectorXML.crear_matriz(n, m)
+            matrizRed = actual.matriz
+            matrizRed.convertirMatrizBinaria()
+            actual.matrizReducida = matrizRed
+            actual = actual.next
+
+    def imprimirMatrizReducida(self):
+        print("Matriz reducida")
+        if self.head is None:
+            return
+        nodo = self.head
+        print(f"nombre: {nodo.nombre} | matriz: {nodo.matriz} | "
+              f"matrizReducida: {nodo.matrizReducida} | n: {nodo.n} | m: {nodo.m}")
+        print(nodo.matrizReducida.imprimir())
+        while nodo.next is not self.head:
+            nodo = nodo.next
+            print(f"nombre: {nodo.nombre} | matriz: {nodo.matriz} | "
+                  f"matrizReducida: {nodo.matrizReducida} | n: {nodo.n} | m: {nodo.m}")
+            print(nodo.matrizReducida.imprimir())
