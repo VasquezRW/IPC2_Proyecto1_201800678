@@ -122,6 +122,8 @@ class Matriz:
                 previous = current
                 current = current.next
             previous.next = current.next
+
+        self.size -= 1
         # print("matriz despues de eliminar fila")
         # self.imprimir()
     """

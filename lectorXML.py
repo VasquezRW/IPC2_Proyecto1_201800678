@@ -10,7 +10,6 @@ def leer_Archivo(ruta):
     for elemento in items:
         matrizCorrecta = True
         nombre = elemento.attributes['nombre'].value
-        #print(nombre)
         n = int(elemento.attributes['n'].value)
         m = int(elemento.attributes['m'].value)
         datos = elemento.getElementsByTagName('dato')
@@ -36,7 +35,7 @@ def leer_Archivo(ruta):
         else:
             print(f"Matriz {nombre} con nombre repetido")
     return matrices
-    # matrices.imprimir()
+    matrices.imprimir()
 
 
 def crear_matriz(n, m):

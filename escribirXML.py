@@ -8,16 +8,16 @@ def escribirArchivoXML(datos, ruta):
         matrizz = datos.head
         for i in range(0, datos.size):
             filaa = matrizz.matriz.head
-            elementoMatriz = ET.SubElement(elementoMatrices, "matriz", nombre=matrizz.nombre, n=str(matrizz.n),
-                                           m=str(matrizz.m), g=str(matrizz.matriz.size))
-            # i = 1
+            elementoMatriz = ET.SubElement(elementoMatrices, "matriz", nombre=matrizz.nombre,
+                                           n=str(matrizz.matriz.size+1), m=str(matrizz.m), g=str(matrizz.matriz.size+1))
+            i = 1
             while filaa is not None:
                 dato = filaa.fila.head
                 while dato is not None:
-                    ET.SubElement(elementoMatriz, "dato", x=str(filaa.fila.x), y=str(dato.y)).text = str(dato.numero)
+                    ET.SubElement(elementoMatriz, "dato", x=str(i), y=str(dato.y)).text = str(dato.numero)
                     dato = dato.next
                 filaa = filaa.next
-                # i += 1
+                i += 1
             filaa = matrizz.matriz.head
             while filaa is not None:
                 ET.SubElement(elementoMatriz, "frecuencia", g=str(filaa.fila.x)).text = str(filaa.fila.frecuencia)
